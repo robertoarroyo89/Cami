@@ -94,12 +94,6 @@ function bind() {
     render();
   });
 
-  document.querySelectorAll('[data-goal-profile]').forEach(b => b.onclick = () => {
-    state.goal = b.dataset.goalProfile;
-    saveState(state);
-    render();
-  });
-
   document.querySelectorAll('[data-tech]').forEach(b => b.onclick = () => {
     state.technique = b.dataset.tech;
     document.querySelectorAll('[data-tech]').forEach(x => x.setAttribute('data-active', x.dataset.tech === state.technique));
@@ -119,6 +113,16 @@ function bind() {
   document.querySelectorAll('[data-act="finish-session"]').forEach(b => b.onclick = finishSession);
   document.querySelectorAll('[data-act="back-home"]').forEach(b => b.onclick = () => { state.step = 'app'; state.tab = 'home'; render(); });
   document.querySelectorAll('[data-act="toggle-light"]').forEach(b => b.onclick = () => { state.light = !state.light; saveState(state); render(); });
+
+  document.querySelectorAll('[data-act="open-goal-picker"]').forEach(b => b.onclick = () => {
+    const picker = document.getElementById('goal-picker');
+    if (picker) picker.style.display = picker.style.display === 'none' ? 'block' : 'none';
+  });
+  document.querySelectorAll('[data-set-goal]').forEach(b => b.onclick = () => {
+    state.goal = b.dataset.setGoal;
+    saveState(state);
+    render();
+  });
 
   document.querySelectorAll('[data-sound]').forEach(b => b.onclick = () => {
     const v = b.dataset.sound;

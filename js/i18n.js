@@ -20,9 +20,11 @@ const i18n = {
     goal2: "Mejorar el sueño",
     goal3: "Aumentar foco",
     goal4: "Cultivar gratitud",
-    goal5: "Amor propio",
-    goal6: "Alivio del estrés",
-    goal7: "Productividad",
+    goal5: "Fortalecer autoestima",
+    goal6: "Encontrar claridad",
+    goal7: "Cultivar paciencia",
+    goal8: "Recuperar energía",
+    changeGoal: "Cambiar objetivo",
     continue: "Continuar",
     greet: "Hola",
     todaysFocus: "Tu enfoque de hoy",
@@ -79,18 +81,20 @@ const i18n = {
       sleep: "Suavizar la noche",
       focus: "Centrar la mente",
       gratitude: "Abrir el corazón",
-      selflove: "Cuidar mi esencia",
-      stress: "Calma en el caos",
-      productivity: "Flujo y claridad"
+      selfworth: "Reconocer tu valor",
+      clarity: "Despejar la niebla",
+      patience: "Habitar el tiempo",
+      energy: "Reconectar con la vida"
     },
     quotes: {
       anxiety: "La calma no es ausencia de tormenta, es paz dentro de ella.",
       sleep: "Cada respiración te lleva más cerca del descanso.",
       focus: "Donde va tu atención, va tu energía.",
       gratitude: "Hoy basta con estar aquí.",
-      selflove: "Tu relación contigo mismo marca el tono para todas las demás.",
-      stress: "Puedes hacer cualquier cosa, pero no todo a la vez.",
-      productivity: "La productividad es el resultado de la claridad, no del esfuerzo."
+      selfworth: "Eres digno de tu propia ternura.",
+      clarity: "Las aguas turbias se aclaran cuando las dejas en paz.",
+      patience: "Lo importante crece despacio.",
+      energy: "Tu cuerpo es sabio, aprende a escucharlo."
     }
   },
   en: {
@@ -114,9 +118,11 @@ const i18n = {
     goal2: "Improve sleep",
     goal3: "Sharpen focus",
     goal4: "Grow gratitude",
-    goal5: "Self-love",
-    goal6: "Stress relief",
-    goal7: "Productivity",
+    goal5: "Build self-worth",
+    goal6: "Find clarity",
+    goal7: "Grow patience",
+    goal8: "Recover energy",
+    changeGoal: "Change goal",
     continue: "Continue",
     greet: "Hello",
     todaysFocus: "Today's focus",
@@ -173,18 +179,20 @@ const i18n = {
       sleep: "Soften into night",
       focus: "Center the mind",
       gratitude: "Open the heart",
-      selflove: "Embrace your essence",
-      stress: "Calm in the chaos",
-      productivity: "Flow and clarity"
+      selfworth: "Recognize your worth",
+      clarity: "Clear the fog",
+      patience: "Inhabit time",
+      energy: "Reconnect with life"
     },
     quotes: {
       anxiety: "Calm isn't the absence of storm — it's peace within it.",
       sleep: "Each breath brings you closer to rest.",
       focus: "Where attention goes, energy flows.",
       gratitude: "Today, simply being here is enough.",
-      selflove: "How you love yourself is how you teach others to love you.",
-      stress: "You can do anything, but not everything at once.",
-      productivity: "Productivity is being able to do things that you were never able to do before."
+      selfworth: "You are worthy of your own tenderness.",
+      clarity: "Muddy waters clear when you let them rest.",
+      patience: "What matters grows slowly.",
+      energy: "Your body is wise — learn to listen."
     }
   }
 };

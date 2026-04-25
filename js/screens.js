@@ -36,14 +36,14 @@ function screenExp(state, t) {
 function screenGoal(state, t) {
   const goals = [
     ['anxiety','goal1'],['sleep','goal2'],['focus','goal3'],['gratitude','goal4'],
-    ['selflove','goal5'],['stress','goal6'],['productivity','goal7']
+    ['selfworth','goal5'],['clarity','goal6'],['patience','goal7'],['energy','goal8']
   ];
-  return `<div style="padding-top:28px">
-    <div class="cap-mascot" style="margin-bottom:18px">${Cap(90)}</div>
+  return `<div style="padding-top:20px">
+    <div class="cap-mascot" style="margin-bottom:14px">${Cap(80)}</div>
     <h1 class="h-title" style="text-align:center">${t.goalPrompt}</h1>
     <p class="h-sub" style="text-align:center">${t.goalSub}</p>
-    <div style="display:flex;flex-direction:column;gap:10px;padding-bottom:40px">
-      ${goals.map(([v,k])=>`<button class="option-card" data-goal="${v}"><div style="font-weight:500">${t[k]}</div></button>`).join('')}
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+      ${goals.map(([v,k])=>`<button class="option-card" data-goal="${v}" style="padding:14px 10px;text-align:center"><div style="font-weight:500;font-size:13px">${t[k]}</div></button>`).join('')}
     </div>
   </div>`;
 }
@@ -154,38 +154,36 @@ function screenMe(state, t) {
     false,
     false
   ];
-  
-  const goals = [
+  const goalKeyMap = {anxiety:'goal1',sleep:'goal2',focus:'goal3',gratitude:'goal4',selfworth:'goal5',clarity:'goal6',patience:'goal7',energy:'goal8'};
+  const allGoals = [
     ['anxiety','goal1'],['sleep','goal2'],['focus','goal3'],['gratitude','goal4'],
-    ['selflove','goal5'],['stress','goal6'],['productivity','goal7']
+    ['selfworth','goal5'],['clarity','goal6'],['patience','goal7'],['energy','goal8']
   ];
-
+  const goalLabel = t[goalKeyMap[state.goal] || 'goal1'];
   return `<div>
     <div style="text-align:center;padding:14px 0 22px">
       <div class="cap-mascot" style="margin-bottom:10px">${Cap(90)}</div>
       <div style="font-size:20px;font-weight:500;letter-spacing:-.3px">${state.name||'amig@'}</div>
+      <button class="pill" data-act="open-goal-picker" style="margin-top:6px;color:var(--mint);cursor:pointer;border:none;font-family:'Poppins',sans-serif">${goalLabel} <span style="opacity:.6;margin-left:4px">›</span></button>
+    </div>
+    <div id="goal-picker" style="display:none;margin-bottom:24px">
+      <div class="surface" style="padding:14px">
+        <div class="label-strong" style="margin-bottom:10px">${t.changeGoal}</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          ${allGoals.map(([v,k])=>`<button class="option-card" data-set-goal="${v}" data-active="${state.goal===v}" style="padding:11px 10px;text-align:center"><div style="font-weight:500;font-size:12px">${t[k]}</div></button>`).join('')}
+        </div>
+      </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px">
       <div class="surface" style="text-align:center"><div style="font-size:11px" class="muted">${t.sessions}</div><div style="font-size:22px;font-weight:500;margin-top:4px">${sessionsCount}</div></div>
       <div class="surface" style="text-align:center"><div style="font-size:11px" class="muted">${t.totalMin}</div><div style="font-size:22px;font-weight:500;margin-top:4px">${totalMin}</div></div>
     </div>
-    
-    <div class="label-strong" style="margin-bottom:12px">${t.goal}</div>
-    <div class="surface" style="padding:4px;margin-bottom:24px;display:flex;flex-wrap:wrap;gap:6px">
-      ${goals.map(([v,k]) => {
-        const isActive = state.goal === v;
-        const borderStyle = isActive ? 'border-color: var(--mint)' : 'border-color: transparent';
-        const bgStyle = isActive ? 'background: rgba(158,209,187,0.1)' : 'background: rgba(255,255,255,0.04)';
-        return `<button class="pill" style="cursor:pointer; ${borderStyle}; ${bgStyle}; flex: 1 1 calc(50% - 6px); text-align: center" data-goal-profile="${v}">${t[k]}</button>`;
-      }).join('')}
-    </div>
-
     <div class="label-strong" style="margin-bottom:12px">${t.achievements}</div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px">
       ${t.badges.map((b,i)=>`<div class="badge ${earned[i]?'earned':'locked'}">${b}</div>`).join('')}
     </div>
     <div class="label-strong" style="margin-bottom:12px">${t.settings}</div>
-    <div class="surface" style="padding:6px 16px;margin-bottom:40px">
+    <div class="surface" style="padding:6px 16px">
       <div class="row" style="padding:13px 0;border-bottom:0.5px solid rgba(255,255,255,0.08)">
         <span style="font-size:14px">${t.language}</span>
         <div class="lang-toggle">

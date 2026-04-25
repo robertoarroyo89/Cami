@@ -28,26 +28,33 @@ const customThoughts = {
       "Recuerdo a quien me ha sostenido.",
       "La vida es un préstamo precioso."
     ],
-    selflove: [
-      "Merezco el mismo amor que doy a los demás.",
+    selfworth: [
+      "Mi valor no depende de lo que produzco.",
       "Soy suficiente, tal y como soy ahora.",
-      "Me perdono por mis errores pasados.",
-      "Cuidar de mí no es egoísta, es necesario.",
-      "Acepto mis luces y mis sombras."
+      "Me hablo con la misma bondad que daría a alguien querido.",
+      "Mis errores no me definen, mis intenciones sí.",
+      "Merezco ocupar mi espacio en el mundo."
     ],
-    stress: [
-      "Suelto lo que no puedo controlar.",
-      "Esta tormenta también pasará.",
-      "Elijo la paz sobre la perfección.",
-      "Mi valor no depende de mi productividad.",
-      "Inhalo calma, exhalo presión."
+    clarity: [
+      "Las respuestas llegan cuando dejo de perseguirlas.",
+      "Lo importante se distingue solo cuando hay silencio.",
+      "Puedo no saber, y aun así estar bien.",
+      "Una decisión a la vez, sin prisa.",
+      "La claridad nace del descanso, no del esfuerzo."
     ],
-    productivity: [
-      "Hago lo mejor que puedo con lo que tengo.",
-      "La claridad nace de la pausa.",
-      "Me enfoco en el progreso, no en la perfección.",
-      "Respeto mi ritmo natural.",
-      "Menos es más cuando mi mente está presente."
+    patience: [
+      "Las cosas suceden a su tiempo, no al mío.",
+      "Espero sin ansiedad, confío sin urgencia.",
+      "El proceso también es parte del camino.",
+      "No tengo que forzar nada ahora.",
+      "Lo bueno crece despacio."
+    ],
+    energy: [
+      "Mi descanso es tan productivo como mi acción.",
+      "Suelto lo que me pesa, abrazo lo que me sostiene.",
+      "Mi cuerpo me pide cuidado y le respondo.",
+      "Restaurar es también avanzar.",
+      "Vuelvo a mi centro y desde ahí me muevo."
     ],
     general: [
       "Estoy exactamente donde necesito estar.",
@@ -86,26 +93,33 @@ const customThoughts = {
       "I remember those who have held me.",
       "Life is a precious loan."
     ],
-    selflove: [
-      "I deserve the same love I give others.",
-      "I am enough, exactly as I am now.",
-      "I forgive myself for past mistakes.",
-      "Self-care is not selfish, it is vital.",
-      "I embrace my lights and shadows."
+    selfworth: [
+      "My worth doesn't depend on what I produce.",
+      "I am enough, just as I am now.",
+      "I speak to myself with the kindness I'd give a loved one.",
+      "My mistakes don't define me, my intentions do.",
+      "I deserve to take up space in this world."
     ],
-    stress: [
-      "I let go of what I cannot control.",
-      "This storm will also pass.",
-      "I choose peace over perfection.",
-      "My worth is not tied to my productivity.",
-      "Inhale calm, exhale pressure."
+    clarity: [
+      "Answers arrive when I stop chasing them.",
+      "What matters becomes clear only in silence.",
+      "I can not know, and still be okay.",
+      "One decision at a time, without rush.",
+      "Clarity is born from rest, not effort."
     ],
-    productivity: [
-      "I do my best with what I have.",
-      "Clarity is born from pausing.",
-      "I focus on progress, not perfection.",
-      "I respect my natural rhythm.",
-      "Less is more when my mind is present."
+    patience: [
+      "Things happen on their own time, not mine.",
+      "I wait without anxiety, trust without urgency.",
+      "The process is also part of the path.",
+      "I don't have to force anything now.",
+      "Good things grow slowly."
+    ],
+    energy: [
+      "My rest is as productive as my action.",
+      "I release what weighs me down, embrace what holds me up.",
+      "My body asks for care, and I respond.",
+      "Restoring is also moving forward.",
+      "I return to my center, and from there I move."
     ],
     general: [
       "I am exactly where I need to be.",
@@ -119,10 +133,13 @@ const customThoughts = {
 
 function detectTopicKey(text) {
   const t = (text || "").toLowerCase();
-  if (/ansi|anxie|stress|estr[eé]s|worry|preocup|nervi/.test(t)) return 'stress';
+  if (/ansi|anxie|stress|estr[eé]s|worry|preocup|nervi/.test(t)) return 'anxiety';
   if (/sleep|sue[ñn]o|insom|dorm|tired|cans/.test(t)) return 'sleep';
-  if (/focus|foco|concentr|distra|atenc|prod|work|trabaj/.test(t)) return 'productivity';
+  if (/focus|foco|concentr|distra|atenc/.test(t)) return 'focus';
   if (/grat|thank|agradec|aprec/.test(t)) return 'gratitude';
-  if (/love|amor|self|propio|estim|val/.test(t)) return 'selflove';
+  if (/autoestim|self.?worth|valgo|valor[ae]?|insegur|confianza/.test(t)) return 'selfworth';
+  if (/clari|claridad|confus|fog|niebla|decid/.test(t)) return 'clarity';
+  if (/pacien|patient|prisa|rush|esper/.test(t)) return 'patience';
+  if (/energ[ií]a|cans|agotad|tired|exhaust|fatig/.test(t)) return 'energy';
   return 'general';
 }
