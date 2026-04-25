@@ -192,24 +192,12 @@ body {
   flex-shrink: 0;
   display: flex;
   justify-content: space-around;
-  padding: 12px 8px 12px;
-  padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  padding: 8px 8px calc(8px + env(safe-area-inset-bottom));
   background: var(--teal-deep);
   border-top: 0.5px solid rgba(255,255,255,0.08);
   position: relative;
   z-index: 50;
 }
-.app-frame::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: env(safe-area-inset-bottom);
-  background: var(--teal-deep);
-  z-index: 40;
-}
-.app-frame.light::after { background: var(--teal-light-bg); }
 .app-frame.light .tabs { background: var(--teal-light-bg); border-color: rgba(31,46,44,0.1); }
 .tab {
   display: flex;
@@ -239,13 +227,14 @@ body {
 
 .pill {
   display: inline-block;
-  padding: 5px 11px;
+  padding: 6px 14px;
   border-radius: 999px;
   background: rgba(255,255,255,0.08);
-  border: 0.5px solid rgba(255,255,255,0.1);
-  font-size: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  font-size: 13px;
+  color: var(--text-on-dark);
 }
-.app-frame.light .pill { background: rgba(31,46,44,0.06); border-color: rgba(31,46,44,0.1); }
+.app-frame.light .pill { background: rgba(31,46,44,0.06); border-color: rgba(31,46,44,0.1); color: var(--ink-light); }
 
 .input-clean {
   width: 100%;

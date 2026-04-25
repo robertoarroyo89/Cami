@@ -172,7 +172,12 @@ function screenMe(state, t) {
     
     <div class="label-strong" style="margin-bottom:12px">${t.goal}</div>
     <div class="surface" style="padding:4px;margin-bottom:24px;display:flex;flex-wrap:wrap;gap:6px">
-      ${goals.map(([v,k]) => `<button class="pill" style="cursor:pointer;border-color:${state.goal===v?'var(--mint)':'transparent'};background:${state.goal===v?'rgba(158,209,187,0.15)':'transparent'}" data-goal-profile="${v}">${t[k]}</button>`).join('')}
+      ${goals.map(([v,k]) => {
+        const isActive = state.goal === v;
+        const borderStyle = isActive ? 'border-color: var(--mint)' : 'border-color: transparent';
+        const bgStyle = isActive ? 'background: rgba(158,209,187,0.1)' : 'background: rgba(255,255,255,0.04)';
+        return `<button class="pill" style="cursor:pointer; ${borderStyle}; ${bgStyle}; flex: 1 1 calc(50% - 6px); text-align: center" data-goal-profile="${v}">${t[k]}</button>`;
+      }).join('')}
     </div>
 
     <div class="label-strong" style="margin-bottom:12px">${t.achievements}</div>
