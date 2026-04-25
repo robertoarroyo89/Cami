@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cami-v4';
+const CACHE_NAME = 'cami-v5';
 const ASSETS = [
   './',
   './index.html',
